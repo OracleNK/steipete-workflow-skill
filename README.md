@@ -1,117 +1,74 @@
 # steipete-workflow
 
-An agent skill that encapsulates [Peter Steinberger's](https://steipete.me) agentic engineering philosophy for shipping software at inference-speed.
+Agent skill that makes AI coding agents work autonomously and ship fast, based on [Peter Steinberger's](https://steipete.me) agentic engineering philosophy.
 
-## What This Skill Does
+## What This Does
 
-Teaches AI coding agents to work the way Peter does:
+When an agent loads this skill, it:
 
-- **Short prompts** — 1-2 sentences + screenshots, not elaborate instructions
-- **Commit to main** — No branches for solo work, no PRs, no ceremony
-- **Never revert** — Prompt to fix instead of resetting
-- **Blast radius thinking** — Estimate impact before each task
-- **Multi-agent coordination** — Run 1-8 agents in parallel on the same codebase
-- **No plan mode** — Just say "let's discuss" instead of special modes
+- **Works autonomously** — Doesn't ask permission, just acts
+- **Responds concisely** — No preamble, no pleasantries, just results
+- **Commits atomically** — Only its own changes, conventional commits
+- **Handles errors** — Tries to fix forward, reports blockers clearly
+- **Coordinates with other agents** — Stays in its lane, doesn't touch others' work
 
-Based on Peter's blog posts:
+Based on:
 - [Shipping at Inference-Speed](https://steipete.me/posts/2025/shipping-at-inference-speed) (Dec 2025)
 - [Just Talk To It](https://steipete.me/posts/just-talk-to-it) (Oct 2025)
-- [My Current AI Dev Workflow](https://steipete.me/posts/2025/optimal-ai-development-workflow) (Aug 2025)
 
 ## Installation
 
-### Using npx skills (recommended)
-
 ```bash
-npx skills add oraklenk/steipete-workflow
-```
+# Using npx skills
+npx skills add yourusername/steipete-workflow
 
-### Manual Installation
+# Or manual - Claude Code
+git clone https://github.com/yourusername/steipete-workflow ~/.claude/skills/steipete-workflow
 
-**Claude Code:**
-```bash
-git clone https://github.com/oraklenk/steipete-workflow.git ~/.claude/skills/steipete-workflow
-```
-
-**Codex:**
-```bash
-git clone https://github.com/oraklenk/steipete-workflow.git ~/.codex/skills/steipete-workflow
-```
-
-**Project-local:**
-```bash
-git clone https://github.com/oraclenk/steipete-workflow.git .claude/skills/steipete-workflow
+# Or manual - Codex
+git clone https://github.com/yourusername/steipete-workflow ~/.codex/skills/steipete-workflow
 ```
 
 ## Contents
 
 ```
 steipete-workflow/
-├── SKILL.md                    # Core philosophy and workflow
-├── references/
-│   ├── agents-md-templates.md  # Ready-to-use AGENTS.md templates
-│   ├── multi-agent-patterns.md # Running parallel agents
-│   ├── architecture-decisions.md # Where humans add value
-│   └── production-checklist.md # Ship sellable products
-└── scripts/
-    └── init-agents-md.sh       # Generate AGENTS.md for any project
+├── SKILL.md              # Agent operating instructions
+└── references/
+    ├── agents-md-templates.md  # AGENTS.md templates
+    ├── multi-agent.md          # Parallel agent coordination
+    └── production.md           # Ship checklist
 ```
 
-## Usage
+## Key Behaviors
 
-The skill activates automatically when you mention:
-- "how should I work with agents"
-- "multi-agent setup"
-- "agentic workflow"
-- "shipping faster"
-- "AGENTS.md structure"
-- "blast radius"
+| Before | After |
+|--------|-------|
+| "I'll help you with that! First, let me..." | *[just does the task]* |
+| Asks permission before acting | Acts, reports result |
+| Long explanations | Brief status |
+| Creates branches per feature | Commits to main |
+| Reverts on error | Fixes forward |
 
-Or explicitly reference it in your prompt.
+## Example
 
-### Initialize AGENTS.md for a Project
+**Prompt:** "add stripe checkout"
 
-```bash
-~/.claude/skills/steipete-workflow/scripts/init-agents-md.sh ./my-project "My Project"
-```
+**Without skill:**
+> I'd be happy to help you add Stripe checkout! Let me walk you through the process. First, we'll need to install the Stripe SDK. Then we'll create an API endpoint. Would you like me to proceed with this approach?
 
-Auto-detects tech stack and generates a minimal AGENTS.md.
-
-## Key Concepts
-
-### Blast Radius
-
-Before each prompt, estimate:
-- How long will this take?
-- How many files will it touch?
-- What's the risk if it goes wrong?
-
-Small blast radius = queue many tasks. Large blast radius = focus and watch.
-
-### Multi-Agent Scaling
-
-| Situation | Agents |
-|-----------|--------|
-| Normal work | 1-2 |
-| Feature + tests | 2 |
-| UI + backend + tests | 3 |
-| Cleanup day | 3-4 |
-| Intensive shipping | 4-8 |
-
-### The Core Loop
-
-```
-1. Prompt (short, maybe with image)
-2. Watch stream
-3. If drifting: escape, steer
-4. If done: "write tests" in same context
-5. Commit
-6. Next task
-```
+**With skill:**
+> Created:
+> - api/checkout/route.ts - Stripe session endpoint
+> - components/CheckoutButton.tsx - Client component
+> 
+> Test: `curl -X POST localhost:3000/api/checkout`
+> 
+> Committed: feat: add stripe checkout
 
 ## Credits
 
-Philosophy by [Peter Steinberger](https://x.com/steipete). Skill compiled from his public writings.
+Philosophy by [Peter Steinberger](https://x.com/steipete).
 
 ## License
 
