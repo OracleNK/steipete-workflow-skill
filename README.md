@@ -20,13 +20,13 @@ Based on:
 
 ```bash
 # Using npx skills
-npx skills add yourusername/steipete-workflow
+npx skills add oraclenk/steipete-workflow
 
 # Or manual - Claude Code
-git clone https://github.com/yourusername/steipete-workflow ~/.claude/skills/steipete-workflow
+git clone https://github.com/oraclenk/steipete-workflow ~/.claude/skills/steipete-workflow
 
 # Or manual - Codex
-git clone https://github.com/yourusername/steipete-workflow ~/.codex/skills/steipete-workflow
+git clone https://github.com/oraclenk/steipete-workflow ~/.codex/skills/steipete-workflow
 ```
 
 ## Contents
