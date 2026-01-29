@@ -23,24 +23,24 @@ Based on Peter's blog posts:
 ### Using npx skills (recommended)
 
 ```bash
-npx skills add yourusername/steipete-workflow
+npx skills add oraklenk/steipete-workflow
 ```
 
 ### Manual Installation
 
 **Claude Code:**
 ```bash
-git clone https://github.com/yourusername/steipete-workflow.git ~/.claude/skills/steipete-workflow
+git clone https://github.com/oraklenk/steipete-workflow.git ~/.claude/skills/steipete-workflow
 ```
 
 **Codex:**
 ```bash
-git clone https://github.com/yourusername/steipete-workflow.git ~/.codex/skills/steipete-workflow
+git clone https://github.com/oraklenk/steipete-workflow.git ~/.codex/skills/steipete-workflow
 ```
 
 **Project-local:**
 ```bash
-git clone https://github.com/yourusername/steipete-workflow.git .claude/skills/steipete-workflow
+git clone https://github.com/oraclenk/steipete-workflow.git .claude/skills/steipete-workflow
 ```
 
 ## Contents
